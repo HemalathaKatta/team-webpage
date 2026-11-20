@@ -46,8 +46,7 @@ pipeline {
                                                   usernameVariable: 'GIT_USER',
                                                   passwordVariable: 'GIT_TOKEN')]) {
                     sh '''
-                        AUTHOR=$(git log -1 --pretty=%an | tr '[:upper:]' '[:lower:]' | tr -cs 'a-z0-9' '-' | sed 's/^-//; s/-$//')
-                        TAG="$(date +%Y.%m.%d)-$BUILD_NUMBER-$AUTHOR"
+                        TAG="$(date +%Y.%m.%d)"
                         git config user.name "Jenkins"
                         git config user.email "jenkins@localhost"
                         git tag -a "$TAG" -m "Passed build $BUILD_NUMBER"
