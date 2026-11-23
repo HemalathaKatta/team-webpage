@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    triggers {
-        // Check GitHub for new pushes from any team member every 2 minutes
-        pollSCM('H/2 * * * *')
-    }
 
     parameters {
         // Leave empty for a normal build. Enter an old tag to roll back to it.
